@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Notice Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Smart Notice Board</h1>
+    <p>A centralized platform to access and share notices</p>
+
+    <section class="home-actions">
+      <div class="action-card" onclick="goTo('create')">Create QR for Notes</div>
+      <div class="action-card" onclick="goTo('scan')">Scan QR Code</div>
+      <div class="action-card" onclick="goTo('notices')">View Notices</div>
+    </section>
+  </section>
+  <!-- HERO ENDS HERE -->
+
+  <!-- CREATE QR -->
+  <section id="create" class="page hidden">
+    <div class="qr-card">
+      <h2>Create QR for Notes</h2>
+      <p>Select a file and generate a QR code to access it.</p>
+      <input type="file" id="fileInput" multiple/>
+      <button onclick="generateQR()">Generate QR</button>
+      <div id="qrResult"></div>
+    </div>
+  </section>
+
+  <!-- VIEW NOTICES -->
+  <section id="notices" class="page hidden">
+    <div class="notice-card">
+      <h2>Notices</h2>
+
+      <input
+        type="text"
+        id="search"
+        placeholder="Search notices..."
+        onkeyup="renderNotices()"
+      />
+
+      <select id="category" onchange="renderNotices()">
+        <option value="all">All</option>
+        <option value="exam">Exam</option>
+        <option value="event">Event</option>
+        <option value="general">General</option>
+      </select>
+
+      <div id="noticeList"></div>
+    </div>
+  </section>
+
+  <!-- PROBLEM + OBJECTIVE -->
+  <section class="info">
+    <div class="card">
+      <h2>Problem</h2>
+      <p>
+        Paper notices cause delays, get lost easily, and students often miss
+        important announcements.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Objective</h2>
+      <p>
+        To build a digital notice board that provides real-time access to notices
+        using QR codes.
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <h2>System Modules</h2>
+
+    <div class="feature-grid">
+      <div class="feature-card">Student Dashboard</div>
+      <div class="feature-card">Admin Panel</div>
+      <div class="feature-card">QR Access</div>
+      <div class="feature-card">Notice Database</div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section class="workflow">
+    <h2>How It Works</h2>
+
+    <div class="steps">
+      <div class="step">Scan QR Code</div>
+      <div class="arrow">→</div>
+      <div class="step">Open Website</div>
+      <div class="arrow">→</div>
+      <div class="step">View Notices</div>
+      <div class="arrow">→</div>
+      <div class="step">Real-Time Updates</div>
+    </div>
+  </section>
+
+  <!-- SCAN QR -->
+  <section id="scan" class="page hidden">
+    <div class="qr-card">
+      <h2>Scan QR Code</h2>
+      <p>
+        Use your phone’s camera or any QR scanner app to scan a QR code.
+        You’ll be redirected to the notes or notices instantly.
+      </p>
+      <p style="color:#777; margin-top:10px;">
+        (In-app scanning can be added using camera permissions.)
+      </p>
+    </div>
+  </section>
+  <footer class="footer">
+  <p><strong>Smart Notice Board</strong></p>
+  <p>QR-based digital notice & notes system</p>
+  <p style="opacity:0.7;">IDTL Project • Demo Version</p>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
